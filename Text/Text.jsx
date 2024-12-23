@@ -2,8 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 Text.propTypes = {
+  /** font-tiny5|font-shantell-sans|font-urbanist */
   className: PropTypes.string,
+  /** expects string values, should look into html content... */
   content: PropTypes.string,
+  /** expecting string representation of tag names */
   tagName: PropTypes.string
 };
 
