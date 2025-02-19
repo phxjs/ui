@@ -1,25 +1,35 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
-export function Form({action, method, onSubmit, tagName, children, ...args}) {
-  const Tag = tagName || 'form';
+Form.propTypes = {
+  action: PropTypes.string,
+  method: PropTypes.oneOf('get', 'post', 'put'),
+  onSubmit: PropTypes.func,
+  tagName: PropTypes.string
+};
+
+export function Form({ action, method = 'post', onSubmit, tagName = 'form', ...args }) {
+  const Tag = tagName;
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit && onSubmit(event);
+    onSubmit(event);
   };
 
   if (action) {
     return (
       <Tag
         {...args}
-        {...onSubmit && {onSubmit: handleSubmit}}
         action={action}
-        method={method || 'post'}
-      >
-        {children}
-      </Tag>
+        method={method}
+        {...(onSubmit && { onSubmit: handleSubmit })}
+      />
     );
   }
 
-  return <Tag {...args} onSubmit={handleSubmit}>{children}</Tag>;
+  return <Tag {...args} {...(onSubmit && { onSubmit: handleSubmit })} />;
 }
+
+Form.Submit = function Submit() {
+  return <input type="submit" />;
+};

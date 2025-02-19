@@ -6,7 +6,7 @@ FormField.Error = FormFieldError;
 FormField.Input = FormFieldInput;
 FormField.Label = FormFieldLabel;
 
-export function FormField({ children, errorMessage = null, label, name, inputTagName = 'input', tagName, ...args }) {
+export function FormField({ children, describedBy = null, errorMessage = null, label, name, type = 'text', inputTagName = 'input', tagName, ...args }) {
   const inputId = React.useId();
   const errorId = `${inputId}__error`;
   const Tag = tagName || 'div';
@@ -19,7 +19,7 @@ export function FormField({ children, errorMessage = null, label, name, inputTag
         return React.cloneElement(child, { errorId }, errorMessage);
       }
       if (child.type === FormFieldInput) {
-        return React.cloneElement(child, { id: inputId, inputTagName, name, 'aria-describedby': `${errorId}` });
+        return React.cloneElement(child, { id: inputId, inputTagName, name, type, 'aria-describedby': `${errorId} ${describedBy}` });
       }
       if (child.type === FormFieldLabel) {
         return React.cloneElement(child, { inputId }, label);
@@ -36,7 +36,7 @@ export function FormField({ children, errorMessage = null, label, name, inputTag
     return (
       <Tag {...args}>
         <FormFieldLabel inputId={inputId}>{label}</FormFieldLabel>
-        <FormFieldInput id={inputId} inputTagName={inputTagName} aria-describedby={`${errorId}`} />
+        <FormFieldInput id={inputId} inputTagName={inputTagName} type={type} aria-describedby={`${errorId} ${describedBy}`} />
         <FormFieldError id={errorId}>{errorMessage}</FormFieldError>
         {childs}
       </Tag>
