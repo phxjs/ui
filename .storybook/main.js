@@ -1,16 +1,8 @@
 /** @type { import('@storybook/react-vite').StorybookConfig } */
 const config = {
-  stories: [
-    "../**/*.stories.@(js|jsx|mjs|ts|tsx)",
-  ],
-  core: { disableTelemetry: true, },
-  addons: [
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
-  ],
-  framework: {
-    name: "@storybook/react-vite",
-    options: {},
-  },
+  framework: '@storybook/react-vite',
+  stories: ['../**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  addons: ['@storybook/addon-essentials', '@storybook/experimental-addon-test'],
+  core: { disableTelemetry: true }
 };
 export default config;
