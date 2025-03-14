@@ -20,8 +20,9 @@
     "@storybook/test": "^8.6.4",
     "@storybook/theming": "^8.6.4",
     "@testing-library/react": "^16.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
     "@vitest/browser": "^3.0.8",
-    "@vitest/coverage-v8": "^3.0.8",
+    "@vitest/coverage-istanbul": "^3.0.8",
     "eslint": "8.13.0",
     "eslint-config-semistandard": "17.0.0",
     "eslint-config-standard": "17.0.0",
@@ -40,7 +41,10 @@
   },
   "scripts": {
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build -o doc"
+    "build-storybook": "storybook build -o doc",
+    "test": "vitest",
+    "test-storybook": "vitest --project=storybook",
+    "build-coverage": "vitest --project=storybook --coverage"
   },
   "engines": {
     "node": ">=20.0.0"

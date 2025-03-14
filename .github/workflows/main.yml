@@ -40,6 +40,8 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build-storybook
+      - name: Coverage
+        run: npm run build-coverage
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
