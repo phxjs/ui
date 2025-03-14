@@ -5,7 +5,6 @@ import { Form } from './Form';
 import { FormField } from './Field/FormField';
 
 export default {
-  title: '@phxjs/ui/Form',
   component: Form,
   decorators: [withActions],
   tags: ['autodocs'],

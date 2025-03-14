@@ -1,7 +1,13 @@
 /** @type { import('@storybook/react-vite').StorybookConfig } */
 const config = {
   framework: '@storybook/react-vite',
-  stories: ['../**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  stories: [
+    {
+      directory: '../',
+      files: '**/*.stories.@(js|jsx|mjs|ts|tsx)',
+      titlePrefix: '@phxjs/ui' // 👈 Configure the title prefix
+    }
+  ],
   addons: ['@storybook/addon-essentials', '@storybook/experimental-addon-test'],
   core: { disableTelemetry: true },
   build: {
