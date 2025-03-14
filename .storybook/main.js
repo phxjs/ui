@@ -4,5 +4,14 @@ const config = {
   stories: ['../**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: ['@storybook/addon-essentials', '@storybook/experimental-addon-test'],
   core: { disableTelemetry: true },
+  build: {
+    test: {
+      disableAutoDocs: false,
+      disableBlocks: false,
+      disableDocgen: false,
+      disableSourcemaps: false,
+      disableTreeShaking: false
+    }
+  }
 };
 export default config;
