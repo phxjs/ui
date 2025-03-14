@@ -9,6 +9,9 @@ const preview = {
         color: /(background|color)$/i,
         date: /Date$/i
       }
+    },
+    docs: {
+      toc: true // 👈 Enables the table of contents
     }
   }
 };
