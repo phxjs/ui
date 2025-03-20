@@ -1,9 +1,5 @@
 {
   "name": "@phxjs/ui",
-  "files": [
-    "*.jsx",
-    "*.css"
-  ],
   "eslintConfig": {
     "extends": [
       "@phxjs/eslint-config",
