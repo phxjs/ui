@@ -12,14 +12,9 @@ Text.propTypes = {
   tagName: PropTypes.string
 };
 
-Text.defaultProps = {
-  children: 'I am a Text Component! Give me content.',
-  content: '',
-  tagName: 'span'
-};
-
-export function Text({ className, children, content, tagName: Tag, ...props }) {
+export function Text({ className, children = 'I am a Text Component! Give me content.', content = '', tagName = 'span', ...props }) {
   const childs = content || children;
+  const Tag = tagName;
 
   return (
     <Tag className={className} data-ui="text" {...props}>

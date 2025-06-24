@@ -3,7 +3,7 @@ import React from 'react';
 
 Form.propTypes = {
   action: PropTypes.string,
-  method: PropTypes.oneOf('get', 'post', 'put'),
+  method: PropTypes.oneOf(['get', 'post', 'put']),
   onSubmit: PropTypes.func,
   tagName: PropTypes.string
 };

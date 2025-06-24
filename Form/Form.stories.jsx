@@ -1,12 +1,10 @@
 import React from 'react';
-import { withActions } from '@storybook/addon-actions/decorator';
-import { expect, fn, userEvent } from '@storybook/test';
+import { expect, fn, userEvent } from 'storybook/test';
 import { Form } from './Form';
 import { FormField } from './Field/FormField';
 
 export default {
   component: Form,
-  decorators: [withActions],
   tags: ['autodocs'],
   args: {
     onSubmit: fn(),
@@ -48,11 +46,11 @@ export const FormInAction = {
     await userEvent.type(input2, 'dedicated to all the developers');
 
     const submitBtn = await canvas.getByRole('button');
-    expect(submitBtn).toBeDefined();
+    await expect(submitBtn).toBeDefined();
 
     await userEvent.click(submitBtn);
 
-    expect(args.onSubmit).toHaveBeenCalledOnce();
+    await expect(args.onSubmit).toHaveBeenCalledOnce();
   }
 };
 
@@ -87,7 +85,7 @@ export const FormOnSubmitAccessibly = {
     await userEvent.click(descriptionLabel);
     await userEvent.type(document.activeElement, 'dedicated to all the developers {Enter}');
 
-    expect(args.onSubmit).toHaveBeenCalledOnce();
+    await expect(args.onSubmit).toHaveBeenCalledOnce();
   }
 };
 
@@ -129,10 +127,10 @@ export const FormFieldExample = {
     await userEvent.type(document.activeElement, 'dedicated to all the developers {Enter}');
 
     const submitBtn = await canvas.getByRole('button');
-    expect(submitBtn).toBeDefined();
+    await expect(submitBtn).toBeDefined();
 
     await userEvent.click(submitBtn);
 
-    expect(args.onSubmit).toHaveBeenCalledTimes(2);
+    await expect(args.onSubmit).toHaveBeenCalledTimes(2);
   }
 };

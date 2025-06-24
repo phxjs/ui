@@ -1,7 +1,7 @@
 // import project styles here
 import '../styles.css';
 
-/** @type { import('@storybook/react').Preview } */
+/** @type { import('@storybook/react-vite').Preview } */
 const preview = {
   parameters: {
     controls: {
