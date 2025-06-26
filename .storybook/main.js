@@ -4,15 +4,14 @@ const config = {
   stories: [
     {
       directory: '../.',
-      files: './**!(node_modules)/*.stories.@(js|jsx|mjs|ts|tsx)',
+      files: '**/*.stories.@(jsx|js)',
       titlePrefix: '@phxjs/ui' // 👈 Configure the title prefix
     }
   ],
   addons: [
-    '@storybook/addon-vitest',
-    '@storybook/addon-docs',
     '@storybook/addon-a11y',
-    '@storybook/addon-coverage'
+    '@storybook/addon-docs',
+    {name: '@storybook/addon-vitest'}
   ],
   core: {
     disableTelemetry: true

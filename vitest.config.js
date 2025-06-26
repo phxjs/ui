@@ -9,13 +9,11 @@ const configDir = path.join(dirname, '.storybook');
 const setupFile = path.join(dirname, '.storybook/vitest.setup.js');
 
 export default defineConfig({
+  plugins: [react()],
   test: {
     // Use `workspace` field in Vitest < 3.2
     projects: [{
       plugins: [
-        // because... it reactjs
-        react(),
-
         storybookTest({
           // The location of your Storybook config, main.js|ts
           configDir,
@@ -36,16 +34,8 @@ export default defineConfig({
           instances: [{ browser: 'chromium' }]
         },
         coverage: {
-          provider: 'istanbul',
-          exclude: [
-            ...coverageConfigDefaults.exclude,
-            '**/.storybook/**',
-            // 👇 This pattern must align with the `stories` property of your `.storybook/main` config
-            '**/*.stories.*',
-            // 👇 This pattern must align with the output directory of `storybook build`
-            '**/storybook-static/**',
-            '**/doc/**'
-          ]
+          ...coverageConfigDefaults,
+          exclude: coverageConfigDefaults.exclude
         },
         setupFiles: [setupFile]
       }

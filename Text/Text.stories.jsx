@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text } from './Text';
+import { expect } from 'storybook/test';
 
 export default {
   component: Text,
@@ -34,6 +35,10 @@ export const TextFonts = {
     children: 'String',
     content: undefined,
     tagName: 'span'
+  },
+  play: async ({ canvas }) => {
+    const text = await canvas.getByText(/awesome string/i);
+    expect(text).not.toBeEmptyDOMElement();
   }
 };
 
@@ -43,5 +48,9 @@ export const TextContent = {
     children: 'None',
     content: 'Text Content in props',
     tagName: 'span'
+  },
+  play: async ({ canvas }) => {
+    const text = await canvas.getByText(/Text Content in props/i);
+    expect(text).not.toBeEmptyDOMElement();
   }
 };
