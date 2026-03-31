@@ -8,7 +8,7 @@ LoginForm.propTypes = {
   onSubmit: PropTypes.func
 };
 
-export function LoginForm({ action = 'api/login', onSubmit }) {
+export function LoginForm({ action = '/api/login', onSubmit }) {
   return (
     <Form action={action} onSubmit={onSubmit}>
       <FormField name="email" label="email" type="email" />
