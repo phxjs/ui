@@ -3,19 +3,18 @@ const config = {
   framework: '@storybook/react-vite',
   stories: [
     {
-      directory: '../.',
-      files: './**!(node_modules)/*.stories.@(js|jsx|mjs|ts|tsx)',
-      titlePrefix: '@phxjs/ui' // 👈 Configure the title prefix
-    }
+      directory: '../!(.*|coverage|doc|node_modules)', // match anything but pattern from https://github.com/micromatch/picomatch?tab=readme-ov-file#extglobs
+      files: '**/*.stories.@(jsx|js)',
+      titlePrefix: '@phxjs/ui', // 👈 Configure the title prefix
+    },
   ],
   addons: [
-    '@storybook/addon-vitest',
-    '@storybook/addon-docs',
     '@storybook/addon-a11y',
-    '@storybook/addon-coverage'
+    '@storybook/addon-docs',
+    { name: '@storybook/addon-vitest' },
   ],
   core: {
-    disableTelemetry: true
-  }
+    disableTelemetry: true,
+  },
 };
 export default config;
