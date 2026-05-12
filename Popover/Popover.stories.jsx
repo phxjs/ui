@@ -95,19 +95,6 @@ export const PopoverHintMode = {
 export const PopoverManualMode = {
   render: (props) => (
     <>
-      <style>{`
-      .left, .right {
-        position: absolute;
-        width: 50%;
-        top: 60px;
-      }
-      .left {
-        margin-left: 0;
-      }
-      .right {
-        margin-right: 0;
-      }
-      `}</style>
       <Popover
         {...props}
         className="left"
@@ -145,6 +132,11 @@ export const PopoverManualMode = {
           </blockquote>
         </div>
       </Popover>
+
+      <style>{`
+.left { position-area: bottom left; }
+.right { position-area: bottom right;}
+`}</style>
     </>
   ),
   args: {
